@@ -3,55 +3,106 @@ const API_URL =
 
 
 
+let currentPeserta = null;
+
+
+let scannerLocked = false;
+
+
+
 
 
 function onScanSuccess(decodedText){
 
 
 
-console.log(decodedText);
+if(scannerLocked){
 
+return;
+
+}
+
+
+
+scannerLocked = true;
+
+
+
+currentPeserta = decodedText;
+
+
+
+checkInPeserta(decodedText);
+
+
+
+}
+
+
+
+
+
+
+
+
+function checkInPeserta(idPeserta){
 
 
 
 fetch(API_URL,{
 
+
 method:"POST",
+
 
 headers:{
 
-"Content-Type":
-"application/json"
+
+"Content-Type":"application/json"
+
 
 },
 
 
-body:
+body:JSON.stringify({
 
-JSON.stringify({
 
 action:"checkin",
 
+
 data:{
 
-idPeserta:
-decodedText
+
+idPeserta:idPeserta
+
 
 }
 
-})
-
 
 })
 
 
-.then(res=>res.json())
+})
+
+
+.then(response=>response.json())
 
 
 .then(result=>{
 
 
-showResult(result);
+showCheckInResult(result);
+
+
+})
+
+
+.catch(error=>{
+
+
+showError(
+"Connection Error"
+);
 
 
 });
@@ -64,30 +115,64 @@ showResult(result);
 
 
 
-function showResult(result){
+
+
+
+
+function showCheckInResult(result){
+
 
 
 const box =
-document.getElementById(
-"result"
-);
+document.getElementById("result");
+
+
+const merchBtn =
+document.getElementById("merchBtn");
+
+
+const nextBtn =
+document.getElementById("nextBtn");
+
+
 
 
 
 if(result.status){
 
 
+
+playBeep();
+
+
+
+box.className =
+"result success";
+
+
+
 box.innerHTML = `
 
 
+<div class="result-icon">
+✅
+</div>
+
+
 <h2>
-✅ CHECK IN BERHASIL
+CHECK IN BERHASIL
 </h2>
 
 
 <p>
 ID:
 ${result.data.idPeserta}
+</p>
+
+
+<p>
+Nama:
+${result.data.nama || "-"}
 </p>
 
 
@@ -107,18 +192,289 @@ ${result.data.merchStatus}
 
 
 
+
+
+if(
+
+result.data.merch
+
+&&
+
+result.data.merch !==
+"Tidak ada pembelian"
+
+){
+
+
+merchBtn.style.display =
+"block";
+
+
 }
+
+else{
+
+
+nextBtn.style.display =
+"block";
+
+
+}
+
+
+
+}
+
 
 
 else{
 
 
+
+showError(
+result.message
+);
+
+
+
+nextBtn.style.display =
+"block";
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function takeMerch(){
+
+
+
+fetch(API_URL,{
+
+
+method:"POST",
+
+
+headers:{
+
+
+"Content-Type":"application/json"
+
+
+},
+
+
+body:JSON.stringify({
+
+
+action:"merch",
+
+
+data:{
+
+
+idPeserta:
+currentPeserta
+
+
+}
+
+
+})
+
+
+})
+
+
+.then(response=>response.json())
+
+
+.then(result=>{
+
+
+showMerchResult(result);
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function showMerchResult(result){
+
+
+
+const box =
+document.getElementById("result");
+
+
+const merchBtn =
+document.getElementById("merchBtn");
+
+
+const nextBtn =
+document.getElementById("nextBtn");
+
+
+
+
+if(result.status){
+
+
+
+box.innerHTML += `
+
+
+<hr>
+
+
+<div>
+
+✅ MERCH SUDAH DIBERIKAN
+
+</div>
+
+
+`;
+
+
+
+merchBtn.style.display =
+"none";
+
+
+nextBtn.style.display =
+"block";
+
+
+}
+
+else{
+
+
+alert(
+result.message
+);
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function nextScan(){
+
+
+
+const box =
+document.getElementById("result");
+
+
+const merchBtn =
+document.getElementById("merchBtn");
+
+
+const nextBtn =
+document.getElementById("nextBtn");
+
+
+
+box.className =
+"result waiting";
+
+
+
 box.innerHTML = `
 
 
-<h2>
-❌ ${result.message}
-</h2>
+<div class="result-icon">
+📷
+</div>
+
+
+Menunggu scan QR...
+
+
+`;
+
+
+
+merchBtn.style.display =
+"none";
+
+
+nextBtn.style.display =
+"none";
+
+
+
+currentPeserta = null;
+
+
+scannerLocked = false;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function showError(message){
+
+
+
+const box =
+document.getElementById("result");
+
+
+
+box.className =
+"result error";
+
+
+box.innerHTML = `
+
+
+<div class="result-icon">
+❌
+</div>
+
+
+${message}
 
 
 `;
@@ -128,7 +484,25 @@ box.innerHTML = `
 }
 
 
+
+
+
+
+
+
+function playBeep(){
+
+
+const beep =
+document.getElementById("beep");
+
+
+beep.play()
+.catch(()=>{});
+
+
 }
+
 
 
 
@@ -144,9 +518,12 @@ new Html5QrcodeScanner(
 
 {
 
+
 fps:10,
 
+
 qrbox:250
+
 
 }
 
