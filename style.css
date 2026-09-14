@@ -11,14 +11,16 @@ body{
 
 margin:0;
 
+
 min-height:100vh;
+
 
 background:
 
 radial-gradient(
 circle at top,
-#3b0000,
-#080808 55%
+#450000,
+#080808 60%
 );
 
 
@@ -40,11 +42,14 @@ color:white;
 
 width:100%;
 
+
 max-width:500px;
+
 
 margin:auto;
 
-padding:25px 18px;
+
+padding:20px;
 
 
 }
@@ -56,6 +61,7 @@ padding:25px 18px;
 
 
 text-align:center;
+
 
 margin-bottom:25px;
 
@@ -69,15 +75,14 @@ margin-bottom:25px;
 
 width:100%;
 
-max-width:380px;
 
-height:auto;
+max-width:380px;
 
 
 filter:
 
 drop-shadow(
-0 0 15px rgba(255,0,0,.4)
+0 0 20px rgba(255,0,0,.5)
 );
 
 
@@ -88,7 +93,7 @@ drop-shadow(
 .subtitle{
 
 
-margin-top:8px;
+margin-top:10px;
 
 
 font-size:16px;
@@ -108,9 +113,6 @@ color:#ddd;
 
 
 
-
-
-
 .scanner-card{
 
 
@@ -121,7 +123,7 @@ rgba(255,255,255,.05);
 
 border:
 
-1px solid rgba(255,0,0,.4);
+1px solid rgba(255,0,0,.5);
 
 
 border-radius:20px;
@@ -132,8 +134,7 @@ padding:18px;
 
 box-shadow:
 
-
-0 0 25px rgba(255,0,0,.15);
+0 0 25px rgba(255,0,0,.2);
 
 
 }
@@ -146,10 +147,10 @@ box-shadow:
 text-align:center;
 
 
-font-size:18px;
-
-
 font-weight:bold;
+
+
+font-size:18px;
 
 
 margin-bottom:15px;
@@ -162,33 +163,19 @@ letter-spacing:2px;
 
 
 
-
 #reader{
 
 
 width:100%;
 
 
-border-radius:15px;
-
-
 overflow:hidden;
 
 
-}
-
-
-
-
-
-#reader video{
-
-
 border-radius:15px;
 
 
 }
-
 
 
 
@@ -208,25 +195,23 @@ border-radius:18px;
 text-align:center;
 
 
-font-size:18px;
+font-size:17px;
+
+
+line-height:1.6;
 
 
 font-weight:bold;
-
-
-transition:.3s;
 
 
 }
 
 
 
-
-
 .result-icon{
 
 
-font-size:40px;
+font-size:42px;
 
 
 margin-bottom:10px;
@@ -254,13 +239,12 @@ border:
 
 
 
-
 .success{
 
 
 background:
 
-rgba(0,150,70,.25);
+rgba(0,140,60,.25);
 
 
 border:
@@ -269,7 +253,6 @@ border:
 
 
 }
-
 
 
 
@@ -291,14 +274,13 @@ border:
 
 
 
-
-.merch-button{
+.button{
 
 
 width:100%;
 
 
-margin-top:20px;
+margin-top:15px;
 
 
 padding:18px;
@@ -308,18 +290,6 @@ border:none;
 
 
 border-radius:15px;
-
-
-background:
-
-linear-gradient(
-135deg,
-#ff0000,
-#8b0000
-);
-
-
-color:white;
 
 
 font-size:18px;
@@ -334,20 +304,43 @@ letter-spacing:2px;
 cursor:pointer;
 
 
-box-shadow:
+}
 
 
-0 5px 20px rgba(255,0,0,.4);
+
+
+.merch{
+
+
+background:
+
+linear-gradient(
+135deg,
+#ff0000,
+#900000
+);
+
+
+color:white;
 
 
 }
 
 
 
-.merch-button:active{
+
+.next{
 
 
-transform:scale(.97);
+background:#222;
+
+
+border:
+
+1px solid #777;
+
+
+color:white;
 
 
 }
