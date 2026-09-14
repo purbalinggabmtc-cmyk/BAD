@@ -1,5 +1,5 @@
 const API_URL =
-"https://script.google.com/macros/s/XXXX/exec";
+"https://script.google.com/macros/s/AKfycbyCwRWw3LaA7-nDq7CLQ_uDZK2n275Ad-a0O3qZI3VjglHTbEuV9E32DvWJWZw2XjzZ0w/exec";
 
 
 
