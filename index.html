@@ -2,59 +2,40 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOLD AFTER DARK Scanner</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>
-BOLD AFTER DARK Scanner
-</title>
-
-
-<link rel="stylesheet" href="style.css">
-
-
-<script src="https://unpkg.com/html5-qrcode"></script>
-
-
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/html5-qrcode"></script>
 </head>
-
 
 <body>
 
+  <div class="container">
 
-<div class="container">
+    <div class="logo-wrap">
+      <img src="logo.png" alt="Bold After Dark" class="logo">
+    </div>
 
+    <p class="scanner-subtitle">CHECK-IN SCANNER</p>
 
-<h1>
-BOLD AFTER DARK
-</h1>
+    <div id="reader"></div>
 
+    <div id="result" class="waiting">
+      Menunggu scan QR...
+    </div>
 
-<h2>
-CHECK-IN SCANNER
-</h2>
+    <button id="merchBtn" style="display:none" onclick="takeMerch()">
+      AMBIL MERCH
+    </button>
 
+    <audio id="beep">
+      <source src="beep.mp3">
+    </audio>
 
+  </div>
 
-<div id="reader"></div>
-
-
-
-<div id="result">
-
-Menunggu scan...
-
-</div>
-
-
-
-</div>
-
-
-
-<script src="scanner.js"></script>
-
+  <script src="scanner.js"></script>
 
 </body>
-
 </html>
