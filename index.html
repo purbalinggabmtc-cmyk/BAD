@@ -44,14 +44,11 @@ CHECK-IN SCANNER
 
 
 
-
 <div class="scanner-card">
 
 
 <div class="scanner-title">
-
 SCAN QR PESERTA
-
 </div>
 
 
@@ -59,7 +56,6 @@ SCAN QR PESERTA
 
 
 </div>
-
 
 
 
@@ -73,9 +69,7 @@ SCAN QR PESERTA
 </div>
 
 
-<div>
 Menunggu scan QR...
-</div>
 
 
 </div>
@@ -84,19 +78,37 @@ Menunggu scan QR...
 
 
 
+<div class="action-area">
 
-<button 
+
+<button
 id="merchBtn"
-class="merch-button"
+class="button merch"
 style="display:none"
 onclick="takeMerch()"
 >
 
-
 AMBIL MERCH
 
+</button>
+
+
+
+
+<button
+id="nextBtn"
+class="button next"
+style="display:none"
+onclick="nextScan()"
+>
+
+SCAN BERIKUTNYA
 
 </button>
+
+
+</div>
+
 
 
 
@@ -110,6 +122,7 @@ AMBIL MERCH
 
 
 </div>
+
 
 
 <script src="scanner.js"></script>
