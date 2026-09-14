@@ -1,70 +1,353 @@
+*{
+
+box-sizing:border-box;
+
+}
+
+
+
 body{
-  background:#111;
-  color:white;
-  font-family:Arial, sans-serif;
-  text-align:center;
-  margin:0;
-  padding:0;
+
+
+margin:0;
+
+min-height:100vh;
+
+background:
+
+radial-gradient(
+circle at top,
+#3b0000,
+#080808 55%
+);
+
+
+font-family:
+
+Arial,
+sans-serif;
+
+
+color:white;
+
+
 }
 
-.container{
-  padding:20px;
-  max-width:700px;
-  margin:auto;
+
+
+.page{
+
+
+width:100%;
+
+max-width:500px;
+
+margin:auto;
+
+padding:25px 18px;
+
+
 }
 
-.logo-wrap{
-  margin-bottom:10px;
+
+
+
+.header{
+
+
+text-align:center;
+
+margin-bottom:25px;
+
+
 }
+
+
 
 .logo{
-  width:100%;
-  max-width:420px;
-  height:auto;
-  display:block;
-  margin:0 auto;
+
+
+width:100%;
+
+max-width:380px;
+
+height:auto;
+
+
+filter:
+
+drop-shadow(
+0 0 15px rgba(255,0,0,.4)
+);
+
+
 }
 
-.scanner-subtitle{
-  font-size:18px;
-  font-weight:bold;
-  letter-spacing:2px;
-  margin:10px 0 20px 0;
-  color:#ddd;
+
+
+.subtitle{
+
+
+margin-top:8px;
+
+
+font-size:16px;
+
+
+letter-spacing:4px;
+
+
+font-weight:bold;
+
+
+color:#ddd;
+
+
 }
+
+
+
+
+
+
+
+.scanner-card{
+
+
+background:
+
+rgba(255,255,255,.05);
+
+
+border:
+
+1px solid rgba(255,0,0,.4);
+
+
+border-radius:20px;
+
+
+padding:18px;
+
+
+box-shadow:
+
+
+0 0 25px rgba(255,0,0,.15);
+
+
+}
+
+
+
+.scanner-title{
+
+
+text-align:center;
+
+
+font-size:18px;
+
+
+font-weight:bold;
+
+
+margin-bottom:15px;
+
+
+letter-spacing:2px;
+
+
+}
+
+
+
 
 #reader{
-  width:100%;
-  max-width:400px;
-  margin:0 auto;
+
+
+width:100%;
+
+
+border-radius:15px;
+
+
+overflow:hidden;
+
+
 }
 
-#result{
-  margin-top:20px;
-  padding:20px;
-  border-radius:12px;
-  font-size:18px;
-  line-height:1.6;
+
+
+
+
+#reader video{
+
+
+border-radius:15px;
+
+
 }
+
+
+
+
+
+.result{
+
+
+margin-top:20px;
+
+
+padding:22px;
+
+
+border-radius:18px;
+
+
+text-align:center;
+
+
+font-size:18px;
+
+
+font-weight:bold;
+
+
+transition:.3s;
+
+
+}
+
+
+
+
+
+.result-icon{
+
+
+font-size:40px;
+
+
+margin-bottom:10px;
+
+
+}
+
+
+
 
 .waiting{
-  background:#222;
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+border:
+
+1px solid #333;
+
+
 }
+
+
+
 
 .success{
-  background:#064d24;
+
+
+background:
+
+rgba(0,150,70,.25);
+
+
+border:
+
+1px solid #00ff88;
+
+
 }
+
+
+
 
 .error{
-  background:#5a1111;
+
+
+background:
+
+rgba(180,0,0,.25);
+
+
+border:
+
+1px solid #ff3333;
+
+
 }
 
-button{
-  margin-top:20px;
-  padding:15px 30px;
-  font-size:18px;
-  border-radius:10px;
-  border:none;
-  cursor:pointer;
-  font-weight:bold;
+
+
+
+
+.merch-button{
+
+
+width:100%;
+
+
+margin-top:20px;
+
+
+padding:18px;
+
+
+border:none;
+
+
+border-radius:15px;
+
+
+background:
+
+linear-gradient(
+135deg,
+#ff0000,
+#8b0000
+);
+
+
+color:white;
+
+
+font-size:18px;
+
+
+font-weight:bold;
+
+
+letter-spacing:2px;
+
+
+cursor:pointer;
+
+
+box-shadow:
+
+
+0 5px 20px rgba(255,0,0,.4);
+
+
+}
+
+
+
+.merch-button:active{
+
+
+transform:scale(.97);
+
+
 }
